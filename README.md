@@ -1,6 +1,6 @@
 # Buildr
 
-A platform where ideas meet developers. 
+A platform where ideas meet developers.
 
 ## Getting Started
 
@@ -8,73 +8,45 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+Make sure you have [Node.js](http://nodejs.org/) and [MongoDB](https://www.mongodb.com/) installed.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+```sh
+git clone https://github.com/dy-fi/Buildr
+cd Buildr
+npm install
+nodemon app.js
 ```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+The app should now be running on [localhost:3000](http://localhost:3000/). Make sure MongoDB is installed and MongoDB Daemon is running.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+`mocha`
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+You will need a .env file with the following values
+* SESSION_SECRET - session signature key
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+* [Express](https://expressjs.com/) - The web framework used
+* [MongoDB](https://www.mongodb.com/) - Database
+* [Passport](passportjs.org) - Authentication management
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [Github](github.com) for versioning. For the versions available, see the [tags on this repository](https://github.com/dy-fi/Buildr/tags).
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Dylan Finn** - *Backend*
+* **Makmud Islamov** - *Backend*
+* **Jamar Gibbs** - *IOS*
+* **Jake Shams** - *Frontend*
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+[contributors](https://github.com/dy-fi/Buildr/contributors)
 
 ## License
 
