@@ -14,3 +14,115 @@ const sampleProject = {
     author: 'dwayne123'
 }
 const user = { username: 'dwayne123', password: 'dwaynespass' }
+
+
+describe('Projects', () => {
+
+    before((done) => {
+        agent
+            .post('/login')
+            .send(user)
+            .end((err, res) => {
+                done();
+            })
+
+    })
+
+    after(() => {
+        Project.deleteMany({ title: 'Test Title' }).exec((err, projects) => {
+            console.log(projects)
+            return projects.remove();
+        })
+    });
+
+    // TEST INDEX
+    it('should index ALL projects on /projects GET', (done) => {
+        agent
+            .get('/projects')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.should.be.html;
+                done();
+            });
+    });
+
+    // TEST NEW
+    it('should display new form on /projects/new GET', (done) => {
+        agent
+            .get(`/projects/new`)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.should.be.html
+                done();
+            });
+    });
+
+    // TEST CREATE
+    it('should create a SINGLE project on /ideas POST', (done) => {
+        agent
+            .post('/projects')
+            .send(sampleProject)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.should.be.html
+                done();
+            });
+    });
+
+    // TEST SHOW
+    it('should show a SINGLE project on /projects/<id> GET', (done) => {
+        var project = new Project(sampleProject);
+        project.save((err, data) => {
+            agent
+                .get(`/projects/${data._id}`)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.should.be.html
+                    done();
+                });
+        });
+    });
+
+    // TEST EDIT
+    it('should edit a SINGLE project on /projects/<id>/edit GET', (done) => {
+        var project = new Project(sampleProject);
+        project.save((err, data) => {
+            agent
+                .get(`/projects/${data._id}/edit`)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.should.be.html
+                    done();
+                });
+        });
+    });
+
+    // TEST UPDATE
+    it('should update a SINGLE project on /projects/<id> PUT', (done) => {
+        var project = new Project(sampleProject);
+        project.save((err, data) => {
+            agent
+                .put(`/projects/${data._id}?_method=PUT`)
+                .send({ 'title': 'Updating the title' })
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.should.be.html
+                    done();
+                });
+        });
+    });
+
+    // TEST DELETE
+    it('should delete a SINGLE project on /projects/<id> DELETE', (done) => {
+        var project = new Project(sampleProject);
+        project.save((err, data) => {
+            agent
+                .delete(`/projects/${data._id}?_method=DELETE`)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.should.be.html
+                    done();
+                });
+        });
+    });
+});
