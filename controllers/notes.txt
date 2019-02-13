@@ -11,4 +11,4 @@ POST '/login' >>> renders landing page after submitting the form >>> index.hbs
 projects.js
 
 GET '/projects' >>> all projects >>> projects-index.hbs
-
+GET '/projects/projectId' >>> shows one project >>> show-project.hbs
