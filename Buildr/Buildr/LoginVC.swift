@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginVC: UIViewController {
 
     @IBOutlet weak var userNameField: UITextField!
     
     @IBOutlet weak var userPassField: UITextField!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
