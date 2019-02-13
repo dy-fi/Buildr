@@ -1,0 +1,19 @@
+ROUTES:
+
+
+auth.js
+GET '/' >>> Landing page: sign in(btn), sign up(btn), if signed in logout(btn) >>> index.hbs
+GET '/sign-up' >>> shows sign up form >>> user-signup.hbs
+POST '/sign-in' >>> renders landing page after submitting the form >>> index.hbs
+GET '/login' >>> login form >>> user-login.hbs
+POST '/login' >>> renders landing page after submitting the form >>> index.hbs
+
+projects.js
+
+GET '/projects' >>> all projects >>> projects-index.hbs
+GET '/projects/projectId' >>> shows one project >>> show-project.hbs
+GET '/projects/new' >>> shows new project form >>> new-project.hbs
+POST '/projects/new' >>> after submitting new project redirected to /projects >>> projects-index.hbs
+GET '/project/projectId/edit' >>> edit form of one project, delete(btn) >>> edit-project.hbs
+PUT '/project/projectId' >>> after edit is done and submission redirects >>> show-project.hbs
+DELETE '/projects' >>> after deleting the project redirects >>> projects-index.hbs
