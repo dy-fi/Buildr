@@ -1,0 +1,14 @@
+ROUTES:
+
+
+auth.js
+GET '/' >>> Landing page: sign in(btn), sign up(btn), if signed in logout(btn) >>> index.hbs
+GET '/sign-up' >>> shows sign up form >>> user-signup.hbs
+POST '/sign-in' >>> renders landing page after submitting the form >>> index.hbs
+GET '/login' >>> login form >>> user-login.hbs
+POST '/login' >>> renders landing page after submitting the form >>> index.hbs
+
+projects.js
+
+GET '/projects' >>> all projects >>> projects-index.hbs
+
