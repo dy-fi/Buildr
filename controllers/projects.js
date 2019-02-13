@@ -5,7 +5,7 @@ const Project = require('../models/project')
 
 module.exports = (app) => {
 
-    // All projects
+    // All projects - didnt pass the test
     app.get('/projects', (req, res) => {
         const currentUser = req.user;
         Project.find()
@@ -17,5 +17,10 @@ module.exports = (app) => {
                 console.log(err.message);
             });
     });
+
+    // NEW project
+    app.get('/projects/new', (req, res) => {
+        res.render('new-project', {});
+    })
 
 }

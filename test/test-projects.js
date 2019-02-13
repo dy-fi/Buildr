@@ -2,7 +2,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../app');
 const should = chai.should();
-const Project = require('../models/project');
+const Project = require('../models/project.js');
 
 chai.use(chaiHttp);
 const agent = chai.request.agent(server);
@@ -72,9 +72,10 @@ describe('Projects', () => {
     // TEST SHOW
     it('should show a SINGLE project on /projects/<id> GET', (done) => {
         var project = new Project(sampleProject);
+        const sampleId = '5bad4ff730cf354056asdafas';
         project.save((err, data) => {
             agent
-                .get(`/projects/${data._id}`)
+                .get(`/projects/${sampleId}`)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.should.be.html
@@ -86,9 +87,10 @@ describe('Projects', () => {
     // TEST EDIT
     it('should edit a SINGLE project on /projects/<id>/edit GET', (done) => {
         var project = new Project(sampleProject);
+        const sampleId = '5bad4ff730cf354056asdafas';
         project.save((err, data) => {
             agent
-                .get(`/projects/${data._id}/edit`)
+                .get(`/projects/${sampleId}/edit`)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.should.be.html
@@ -100,9 +102,10 @@ describe('Projects', () => {
     // TEST UPDATE
     it('should update a SINGLE project on /projects/<id> PUT', (done) => {
         var project = new Project(sampleProject);
+        const sampleId = '5bad4ff730cf354056asdafas';
         project.save((err, data) => {
             agent
-                .put(`/projects/${data._id}?_method=PUT`)
+                .put(`/projects/${sampleId}?_method=PUT`)
                 .send({ 'title': 'Updating the title' })
                 .end((err, res) => {
                     res.should.have.status(200);
@@ -115,9 +118,10 @@ describe('Projects', () => {
     // TEST DELETE
     it('should delete a SINGLE project on /projects/<id> DELETE', (done) => {
         var project = new Project(sampleProject);
+        const sampleId = '5bad4ff730cf354056asdafas';
         project.save((err, data) => {
             agent
-                .delete(`/projects/${data._id}?_method=DELETE`)
+                .delete(`/projects/${sampleId}?_method=DELETE`)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.should.be.html
