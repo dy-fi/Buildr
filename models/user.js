@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     createdAt:  { type: Date },
     updatedAt:  { type: Date },
-    username:   { type: String, required: true, createIndexes: true },
+    username:   { type: String, required: true },
     password:   { type: String, required: true },
 })
 

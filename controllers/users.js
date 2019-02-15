@@ -5,20 +5,51 @@ const Project = require('../models/project')
 
 module.exports = (app) => {
 
-    app.get('/user/:id', async (req, res) => {
+    // GET single user by id
+    app.get('/user/:id', (req, res) => {
+        currentUser = req.user
 
-        user = await User.findById(req.params.id)
-
-        res.render('user-show', {
-            user,
-        })
+        User.findById(req.params.id)
+            .then(user => {
+                res.render('/user-show', {
+                    user,
+                    currentUser,
+                })
+            }).catch(e => {
+                console.log(e);
+            })
     })
 
-    app.get('/edit/user/:id', async (req, res) => {
+    // PUT single user by id
+    app.put('/user/:id/edit', (req, res) => {
+        currentUser = req.user;
+
+        if(currentUser._id = req.params._id) {
+            User.findByIdAndUpdate(req.params.id)
+                .then(user => {
+                    res.redirect('/user/:id');
+                }).catch(e => {
+                    console.log(e);
+                })
+        } else {
+            res.status(402);
+        }
 
     })
 
-    app.delete('/user/delete', async (req, res) => {
+    //
+    app.delete('/user/:id/delete', (req, res) => {
+        currentUser = req.user;
 
+        if(currentUser._id == req.params.id) {
+            User.findByIdAndRemove(req.params.id)
+                .then(user => {
+                    res.status(200).redirect('/');
+                }).catch(e => {
+                    console.log(e);
+                })
+        } else {
+            res.status(402);
+        }
     })
 }
