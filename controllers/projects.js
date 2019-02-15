@@ -10,6 +10,7 @@ module.exports = (app) => {
         const currentUser = req.user;
         Project.find()
             .then(project => {
+                // no need to pass currentuser since it is session
                 console.log(`currentUser: ${currentUser}`)
                 res.render('projects-index', { project: project, currentUser: currentUser });
             })
