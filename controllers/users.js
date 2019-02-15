@@ -20,7 +20,7 @@ module.exports = (app) => {
             })
     })
 
-    // PUT single user by id
+    // PUT single user by id if authorized
     app.put('/user/:id/edit', (req, res) => {
         currentUser = req.user;
 
@@ -37,7 +37,7 @@ module.exports = (app) => {
 
     })
 
-    //
+    // DELETE a single user by id if authorized
     app.delete('/user/:id/delete', (req, res) => {
         currentUser = req.user;
 
