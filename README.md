@@ -41,7 +41,7 @@ We use [Github](github.com) for versioning. For the versions available, see the 
 
 ## Authors
 
-* **Dylan Finn** - *Backend*
+* **Dylan Finn** - *Backend* + *Git master*
 * **Makmud Islamov** - *Backend*
 * **Jamar Gibbs** - *IOS*
 * **Jake Shams** - *Frontend*
