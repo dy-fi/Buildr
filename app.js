@@ -47,6 +47,7 @@ app.use(passport.session());
 require('./controllers/users')(app);
 require('./controllers/index')(app);
 require('./controllers/auth')(app);
+require('./controllers/projects')(app);
 
 // START
 app.listen(port, console.log('App listening on port ' + port))
