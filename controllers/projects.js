@@ -46,7 +46,7 @@ module.exports = (app) => {
     });
 
     // SHOW one project
-    app.get('/projects/:id', function (req, res) {
+    app.get('/projects/:id',  (req, res) => {
         const currentUser = req.user;
         // LOOK UP THE PROJECT
         Project.findById(req.params.id).populate('author')
@@ -62,7 +62,7 @@ module.exports = (app) => {
     // TODO: install method override
     // app.get >>> /project/projectId/edit >> edit-project.hbs
     app.get('/projects/:id/edit', (req, res) => {
-        Project.findById(req.params.id, function (err, project) {
+        Project.findById(req.params.id, (err, project) => {
             res.render('edit-project', { project: project });
         })
     });
@@ -78,7 +78,7 @@ module.exports = (app) => {
             })
     })
     // DELETE
-    app.delete('/projects/:id/edit', function (req, res) {
+    app.delete('/projects/:id/edit', (req, res) => {
         Project.findByIdAndRemove(req.params.id).then((project) => {
             res.redirect('/projects');
         }).catch((err) => {
