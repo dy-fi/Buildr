@@ -1,0 +1,12 @@
+<div class="card-group">
+  {{#each user}}
+  <div class="card">
+    <img class="card-img-top" src="https://banner2.kisspng.com/20180206/wrw/kisspng-pokxe9mon-pikachu-ash-ketchum-pokxe9mon-i-choose-pikachu-png-transparent-image-5a797c2ed66e63.1172072515179110868783.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{this.username}}</h5>
+      <p class="card-text">HERE IS SOME TEXT THAT THE USER WILL UPLOAD AS THEIR BIO</p>
+      <p class="card-text"><small class="text-muted">User since {{this.createdAt}}</small></p>
+    </div>
+  </div>
+  {{/each}}
+</div>

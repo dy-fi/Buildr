@@ -1,0 +1,20 @@
+<!-- title: { type: String, required: true },
+description: { type: String, required: true },
+developerNeeded: { type: String, required: true },
+author: { type: Schema.Types.ObjectId, ref: "User", required: true }
+ -->
+
+
+<div class="card-group">
+  {{#each projects}}
+  <div class="card">
+    <img class="card-img-top" src="https://banner2.kisspng.com/20180206/wrw/kisspng-pokxe9mon-pikachu-ash-ketchum-pokxe9mon-i-choose-pikachu-png-transparent-image-5a797c2ed66e63.1172072515179110868783.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{projects.title}}</h5>
+      <p class="card-text">{{projects.description}}</p>
+      <p class="card-text"><small class="text-muted">User since {{projects.developerNeeded}}</small></p>
+      <p class="card-text"><small class="text-muted">User since {{projects.author}}</small></p>
+    </div>
+  </div>
+  {{/each}}
+</div>
