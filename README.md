@@ -50,9 +50,6 @@ We use [Github](github.com) for versioning. For the versions available, see the 
 
 [contributors](https://github.com/dy-fi/Buildr/contributors)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
