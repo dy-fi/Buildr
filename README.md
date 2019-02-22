@@ -1,5 +1,7 @@
 # Buildr
 
+[![CodacyBadge](https://api.codacy.com/project/badge/Grade/91289b5234354ccc8be3a2d56c6658d4)](https://www.codacy.com/app/dy-fi/Buildr?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dy-fi/Buildr&amp;utm_campaign=Badge_Grade)
+
 A platform where ideas meet developers.
 
 ## Getting Started
