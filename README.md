@@ -53,6 +53,5 @@ We use [Github](github.com) for versioning. For the versions available, see the 
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Hat tip to anyone whose code was used!
+* Dan Morse and Make School!
