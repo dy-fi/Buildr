@@ -56,7 +56,7 @@ module.exports = (app) => {
             .catch(err => {
                 console.log(err.message);
             });
-    }); 
+    });
 
     // UPDATE a project
     // TODO: install method override
@@ -84,6 +84,6 @@ module.exports = (app) => {
         }).catch((err) => {
             console.log(err.message);
         })
-    }) 
+    })
 
 }
