@@ -7,6 +7,7 @@ module.exports = (app) => {
 
     // Get user by tags
     app.get('/search', (req, res) => {
+        currentUser = req.User;
         term = new RegExp(req.query.term, 'i')
 
         User
@@ -14,6 +15,7 @@ module.exports = (app) => {
             .exec((err, users) => {
                 res.render('user-list', {
                     users,
+                    currentUser,
                 });
             })
     })
