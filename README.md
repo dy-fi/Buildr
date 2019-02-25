@@ -1,5 +1,7 @@
 # Buildr
 
+[![CodacyBadge](https://api.codacy.com/project/badge/Grade/91289b5234354ccc8be3a2d56c6658d4)](https://www.codacy.com/app/dy-fi/Buildr?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dy-fi/Buildr&amp;utm_campaign=Badge_Grade)
+
 A platform where ideas meet developers.
 
 ## Getting Started
@@ -48,12 +50,8 @@ We use [Github](github.com) for versioning. For the versions available, see the 
 
 [contributors](https://github.com/dy-fi/Buildr/contributors)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Hat tip to anyone whose code was used!
+* Dan Morse and Make School!
