@@ -5,7 +5,7 @@ const Project = require('../models/project')
 
 module.exports = (app) => {
 
-    // user async, await
+
     // All projects - didnt pass the test
     app.get('/projects', (req, res) => {
         const currentUser = req.user;
@@ -56,7 +56,7 @@ module.exports = (app) => {
             .catch(err => {
                 console.log(err.message);
             });
-    }); 
+    });
 
     // UPDATE a project
     // TODO: install method override
@@ -84,6 +84,6 @@ module.exports = (app) => {
         }).catch((err) => {
             console.log(err.message);
         })
-    }) 
+    })
 
 }
