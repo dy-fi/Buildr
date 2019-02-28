@@ -6,7 +6,7 @@ const ProjectSchema = new Schema({
     description: { type: String, required: true },
     developerNeeded: { type: String, required: true },
     author: { type: Schema.Types.ObjectId, ref: "User", required: true },
-    devs: { type: Schema.Types.ObjectId, ref: "User" },
+    devs: [{ type: Schema.Types.ObjectId, ref: "User" }]
 })
 
 module.exports = mongoose.model('Project', ProjectSchema);

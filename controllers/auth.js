@@ -1,5 +1,5 @@
 const express = require('express');
-const passport = require('passport')
+const passport = require('passport');
 
 const User = require('../models/user');
 
@@ -25,17 +25,10 @@ module.exports = (app) => {
             })
     })
 
-    app.post('/login', (req, res) => {
-        console.log('logging in...')
-
-        passport.authenticate('local', {
-            failureRedirect: '/login',
-        }), function(req, res) {
-            res.render('index', {
-                user,
-            })
-        }
-    })
+    app.post('/login', passport.authenticate('local-login', {
+        successRedirect : '/',
+        failureRedirect : '/login',
+    }));
 
     app.get('/logout', (req, res) => {
         req.logout();

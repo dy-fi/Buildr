@@ -32,11 +32,8 @@ UserSchema.pre('save', function(next) {
   });
 });
 
-// Need to use function to enable this.password to work.
-UserSchema.methods.verifyPassword = function(password, done) {
-  bcrypt.compare(password, this.password, (err, isMatch) => {
-    done(err, isMatch);
-  });
+UserSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
 };
 
 module.exports = mongoose.model('User', UserSchema);

@@ -8,7 +8,6 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const passport = require('passport')
-    , LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
 const port = process.env.PORT || 3000
@@ -45,7 +44,7 @@ app.use(passport.session());
 // CONTROLLERS
 require('./controllers/users')(app);
 require('./controllers/index')(app);
-require('./controllers/auth')(app);
+require('./controllers/auth')(app, passport);
 require('./controllers/projects')(app);
 require('./controllers/tags')(app);
 
