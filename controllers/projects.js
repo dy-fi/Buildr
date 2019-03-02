@@ -5,7 +5,7 @@ const Project = require('../models/project')
 
 module.exports = (app) => {
 
-    // user async, await
+
     // All projects - didnt pass the test
     app.get('/projects', (req, res) => {
         const currentUser = req.user;
@@ -22,28 +22,49 @@ module.exports = (app) => {
 
     // NEW project
     app.get('/projects/new', (req, res) => {
-        res.render('new-project', {});
+        res.render('projects-new', {});
     })
 
     // CREATE a project
     app.post('/projects/new', (req, res) => {
+
+        console.log('creating a project...')
+        console.log(req.user)
+
         if (req.user) {
             const project = new Project(req.body);
             project.author = req.user._id;
+
             project.save().then(project => {
                 return User.findById(req.user._id);
             }).then(user => {
                 user.projects.unshift(project);
                 user.save();
-                res.redirect('/projects');
+                res.redirect('/projects/' + project._id);
             })
-                .catch(err => {
-                    console.log(err.message);
-                });
+            .catch(err => {
+                console.log(err.message);
+            });
         } else {
             return res.status(401); // UNAUTHORIZED
         }
     });
+
+    app.put('/projects/:id/user/:userid', (req, res) => {
+
+        User.findById(req.params.userid)
+            .then(user => {
+                Project.findById(req.params.id).populate('author');
+            }).then(project => {
+                if (user == project.author) {
+                    project.dev.unshift(user);
+                    project.save();
+                    res.redirect('/projects/' + project._id);
+                } else {
+                    res.status(403);
+                }
+            })
+    })
 
     // SHOW one project
     app.get('/projects/:id',  (req, res) => {
