@@ -6,19 +6,19 @@ const Project = require('../models/project')
 
 module.exports = (app) => {
 
-    // All projects - didnt pass the test
-    app.get('/projects', (req, res) => {
-        var currentUser = req.user;
-        Project.find()
-            .then(project => {
-                // no need to pass currentuser since it is session
-                console.log(`currentUser: ${currentUser}`)
-                res.render('projects-index', { project: project, currentUser: currentUser });
+    // SHOW all projects a user is part of or owns
+    app.get('/user/:id/projects', (req, res) => {
+        currentUser = req.user;
+        User.findById(req.params.id)
+            .populate(projects)
+            .then(user => {
+                var projects = user.projects
+                res.render('projects-index', {
+                    projects,
+                    currentUser,
+                })
             })
-            .catch(err => {
-                console.log(err.message);
-            });
-    });
+    })
 
     // NEW project
     app.get('/projects/new', (req, res) => {
@@ -43,7 +43,7 @@ module.exports = (app) => {
             project.save().then(project => {
                 return User.findById(req.user._id);
             }).then(user => {
-                user.projects.unshift(project);
+                user.projects.unshift(project._id);
                 user.save();
                 res.redirect('/projects/' + project._id);
             })
@@ -55,6 +55,7 @@ module.exports = (app) => {
         }
     });
 
+    // EDIT one project
     app.put('/projects/:id/user/:userid', (req, res) => {
 
         User.findById(req.params.userid)
@@ -75,9 +76,11 @@ module.exports = (app) => {
     app.get('/projects/:id',  (req, res) => {
         const currentUser = req.user;
         // LOOK UP THE PROJECT
-        Project.findById(req.params.id).populate('author')
-            .then(post => {
-                res.render('show-project', { post, currentUser });
+        Project.findById(req.params.id)
+            .populate('author')
+            .populate('devs')
+            .then(project => {
+                res.render('projects-show', { project, currentUser });
             })
             .catch(err => {
                 console.log(err.message);

@@ -5,7 +5,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const passport = require('passport')
+const passport = require('passport');
 
 // environment
 const app = express();

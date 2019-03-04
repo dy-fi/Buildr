@@ -1,31 +1,13 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
-  <a class="navbar-brand">Buildr</a>
-</nav>
-    <br>
-    <br>
-    <div class="container">
-        <div class="row">
-            {{#each}}
-
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="" alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-text">{{this}}</h4>
-                <p class="card-text">{{this}}</p>
-                <p class="card-text">{{this}}</p>
-
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                      <!-- ADD charities to user dashboard -->
-                    <form action="/charities" method="POST">
-                        <button type="submit" name="" value="{{this}}" id="{{}}" class="btn btn-sm btn-info">Select</button>
-                        <button type="button" class="btn btn-sm btn-outline-info">More Info</button>
-                  </div>
-                  <small class="text-muted"></small>
-                </div>
-              </div>
-            </div>
-          </div>
-          {{/each}}
+<div class="row">
+  <div class="col-md-4">
+  {{#each projects}}
+    <div class="card mb-4 box-shadow">
+      <img class="card-img-top" src="" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">{{project.title}}</h4>
+        <p class="card-text">{{project.description}}</p>
+      </div>
     </div>
+  {{/each}}
+  </div>
+</div>

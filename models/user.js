@@ -8,6 +8,7 @@ const UserSchema = new Schema({
     username:   { type: String, required: true },
     password:   { type: String, required: true },
     tags: [{ type: Schema.ObjectId, ref: 'tags' }],
+    projects: [{ type: Schema.ObjectId, ref: "project" }],
 })
 
 // Must use function here! ES6 => functions do not bind this!
