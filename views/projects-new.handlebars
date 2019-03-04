@@ -9,7 +9,9 @@ body {
 
 <div class="container">
     <div class="row justify-content-md-center">
+        {{#if currentUser}}
             <form method="POST" action="/projects/new" class="col-md-6">
+              <input type='hidden' value='{{currentUser._id}}'>
               <div class="form-group">
                   <h4>Create Project</h4>
                   <br>
@@ -30,5 +32,6 @@ body {
               </div> -->
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+        {{/if}}
     </div>
 </div>

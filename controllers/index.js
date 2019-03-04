@@ -1,8 +1,13 @@
 const express = require('express');
+const passport = require('passport');
 
 module.exports = (app) => {
 
     app.get('/', (req, res) => {
-        res.render('index')
+        var currentUser = req.user;
+
+        res.render('index', {
+            currentUser,
+        })
     })
 }

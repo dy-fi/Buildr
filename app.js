@@ -3,12 +3,11 @@ require('dotenv').config();
 
 const express = require('express');
 const exphbs = require('express-handlebars');
-const session = require('express-session');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-
+const session = require('express-session');
 const passport = require('passport')
 
+// environment
 const app = express();
 const port = process.env.PORT || 3000
 
@@ -26,18 +25,31 @@ app.use(express.static('public'));
 // body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// AUTHENTICATION
+
+// passport config
+require('./passport')(passport);
+
+var MongoDBStore = require('connect-mongodb-session')(session);
+
+var store = new MongoDBStore({
+  uri: 'mongodb://localhost:27017/Buildr-db',
+  collection: 'sessions'
+});
+
+// session
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-
+    store: store,
     cookie: {
-        maxAge: 360000 // an hour
+        // maxAge: 360000 // an hour
         //secure: true,   // turn this on in production
-    }
+    },
 }));
 
-require('./passport')(passport);
+// passport dependencies
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -1,14 +1,14 @@
 const express = require('express')
+const passport = require('passport')
 
 const User = require('../models/user')
 const Project = require('../models/project')
 
 module.exports = (app) => {
 
-
     // All projects - didnt pass the test
     app.get('/projects', (req, res) => {
-        const currentUser = req.user;
+        var currentUser = req.user;
         Project.find()
             .then(project => {
                 // no need to pass currentuser since it is session
@@ -22,7 +22,12 @@ module.exports = (app) => {
 
     // NEW project
     app.get('/projects/new', (req, res) => {
-        res.render('projects-new', {});
+        var currentUser = req.user;
+
+        console.log(req.user);
+        res.render('projects-new', {
+            currentUser,
+        });
     })
 
     // CREATE a project

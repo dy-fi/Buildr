@@ -1,17 +1,18 @@
 const mongoose = require('mongoose')
-const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy;
+const passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy;
 
 const User = require('./models/user')
 
-module.exports = function(passport) {
+module.exports = passport => {
+
     passport.serializeUser(function (user, done) {
-        done(null, user);
+        done(null, user._id);
     });
 
     passport.deserializeUser(function (user, done) {
-        User.findById(user.id, function (err, user) {
-            done(err, user);
+        User.findById(user._id, function (err, user) {
+            done(null, user);
         });
     });
 
