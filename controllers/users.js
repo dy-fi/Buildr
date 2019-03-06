@@ -2,7 +2,6 @@ const express = require('express')
 
 const User = require('../models/user')
 const Project = require('../models/project')
-const Tag = require('../models/tag')
 
 module.exports = (app) => {
 
@@ -11,10 +10,7 @@ module.exports = (app) => {
         currentUser = req.user
 
         User.findById(req.params.id)
-            .populate('projects')
-            .populate('tags')
             .then(user => {
-                console.log(user)
                 res.render('user-show', {
                     user,
                     currentUser,
