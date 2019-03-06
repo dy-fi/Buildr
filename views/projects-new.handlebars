@@ -3,8 +3,18 @@ body {
     padding-top: 220px;
     background-image:url(https://images.unsplash.com/photo-1544767799-e095aa926feb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=933&q=80);
     background-size: 100%;
-    color: white;
+    color: #191f34;
 }
+.my-button {
+  width: 100%;
+  background-color: #191f34;
+}
+
+.my-button:hover {
+  background-color: white;
+  color: #191f34;
+}
+
 </style>
 
 <div class="container">
@@ -26,12 +36,11 @@ body {
                 <label for="developer-needed">Developer Needed</label>
                 <input type="text" class="form-control" id="developerNeeded" name="developerNeeded" placeholder="Developers Needed">
               </div>
-              <!-- <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-              </div> -->
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary my-button">Submit</button>
             </form>
+        {{else}}
+        <br><br><br><br><br>
+        <h2>How'd you get here??? You're not authenticated! Log in and try again.</h2>
         {{/if}}
     </div>
 </div>
