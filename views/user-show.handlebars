@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-md-center">
 
       <div class="col-md-8">
@@ -21,4 +21,43 @@
         </div>
         {{/each}}
       </div>
+</div> -->
+
+<div class="outer-user-show">
+    <div class=user-show>
+        <div class="user-show-username">
+            <h1>{{user.username}}</h1>
+        </div>
+        <div class="user-show-user-attributes">
+            <p><strong>Skills: </strong>{{user.tags}}</p>
+            <p><strong>Number of projects worked on: </strong>{{user.projects.length()}}</p>
+            <p><strong>Last active: </strong>{{user.updatedAt}}</p>
+            <p><strong>User since: </strong>{{user.createdAt}}</p>
+        </div>
+    </div>
 </div>
+
+{{#each user.projects}}
+<div class="project-cards">
+    <div class="project-card">
+        <div class="project-title">
+          {{#if this.title}}
+            <a href="project-show.html"><h3>{{projects.title}}</h3></a>
+          {{else}}
+            <a href="project-show.html"><h3>Untitled</h3></a>
+          {{/if}}
+            <a href="user-show.html"><h3>By this.username</h3></a>
+        </div>
+        <div class ="project-description">
+            <p>{{projects.description}}</p>
+        </div>
+        <div class="project-devs">
+            <p><strong>Developers needed: </strong>{{projects.developerNeeded}}</p>
+            <!-- <p><strong>Developers on board: </strong>{{projects.devs}}</p> -->
+        </div>
+        <div class="anker">
+            <a href='/projects/{{projects._id}}' class='btn btn-primary'>Go to project</a>
+        </div>
+    </div>
+</div>
+{{/each}}
