@@ -94,7 +94,7 @@ module.exports = (app) => {
     // app.get >>> /project/projectId/edit >> edit-project.hbs
     app.get('/projects/:id/edit', (req, res) => {
         Project.findById(req.params.id, (err, project) => {
-            res.render('edit-project', { project: project });
+            res.render('projects-edit', { project: project });
         })
     });
 

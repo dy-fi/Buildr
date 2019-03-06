@@ -6,7 +6,7 @@
         <ul class="nav-links">
         {{#if currentUser}}
             <li><a href="/projects/new">New Project</a></li>
-            <li><a href="/user/:id/projects">My Projects</a></li>
+            <li><a href="/user/{{currentUser._id}}/projects">My Projects</a></li>
             <li><a href="/logout"><button class="nav-btn">logout</button></a></li>
             <!-- <li><a href="projects.html">Browse Users</a></li> -->
         {{else}}
