@@ -1,0 +1,20 @@
+<div class="nav-bar">
+    <div class="logo">
+        <img src=""><a href="/">BUILDR</a>
+    </div>
+    <div class="left">
+        <ul class="nav-links">
+        {{#if currentUser}}
+            <li><a href="/projects/new">New Project</a></li>
+            <li><a href="/user/:id/projects">My Projects</a></li>
+            <li><a href="/logout"><button class="nav-btn">logout</button></a></li>
+            <!-- <li><a href="projects.html">Browse Users</a></li> -->
+        {{else}}
+            <!-- <li><a href="/login"><button class="nav-btn">Log in</button></a></li>
+            <li><a href="/sign-up"><button class="nav-btn">Get started!</button></a></li> -->
+            <!-- <li><a href="../team.handlebars">Team</a></li> -->
+        {{/if}}
+
+        </ul>
+    </div>
+</div>
