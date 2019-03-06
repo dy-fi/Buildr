@@ -133,10 +133,17 @@ body {
         <h1 class="cover-heading">Let's Build Something</h1>
         <p class="lead">You have ideas and we have developers.. so lets connect and build Something
         Phenomenal. Our platform can build out your wildest dreams in one click of a button. </p>
+
+
+        {{#if currentUser}}
+        PROJECTS BUTTON
+        LOGOUT BUTTON
+        {{else}}
         <p class="lead">
           <a href="/sign-up" class="btn btn-md btn-secondary">Register</a>
           <a href="/login" class="btn btn-md btn-secondary">Login</a>
         </p>
+        {{/if}}
       </main>
       <footer class="mastfoot mt-auto">
         <div class="inner">

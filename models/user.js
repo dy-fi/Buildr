@@ -7,8 +7,8 @@ const UserSchema = new Schema({
     updatedAt:  { type: Date },
     username:   { type: String, required: true },
     password:   { type: String, required: true },
-    tags: [{ type: Schema.ObjectId, ref: 'tags' }],
-    projects: [{ type: Schema.ObjectId, ref: "project" }],
+    tags: [{ type: Schema.Types.ObjectId, ref: 'tags' }],
+    projects: [{ type: Schema.Types.ObjectId, ref: 'project' }],
 })
 
 // Must use function here! ES6 => functions do not bind this!
