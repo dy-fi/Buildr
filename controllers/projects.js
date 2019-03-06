@@ -10,13 +10,15 @@ module.exports = (app) => {
     app.get('/user/:id/projects', (req, res) => {
         currentUser = req.user;
         User.findById(req.params.id)
-            .populate(projects)
+            .populate('projects')
             .then(user => {
-                var projects = user.projects
                 res.render('projects-index', {
-                    projects,
+                    user,
                     currentUser,
                 })
+            })
+            .catch(e => {
+                console.log(e);
             })
     })
 

@@ -7,7 +7,7 @@ const UserSchema = new Schema({
     updatedAt:  { type: Date },
     username:   { type: String, required: true },
     password:   { type: String, required: true },
-    tags: [{ type: Schema.Types.ObjectId, ref: 'tags' }],
+    tags: [{ type: Schema.Types.ObjectId, ref: 'tag' }],
     projects: [{ type: Schema.Types.ObjectId, ref: 'project' }],
 })
 

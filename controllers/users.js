@@ -11,7 +11,7 @@ module.exports = (app) => {
 
         User.findById(req.params.id)
             .then(user => {
-                res.render('/user-show', {
+                res.render('user-show', {
                     user,
                     currentUser,
                 })
@@ -27,7 +27,7 @@ module.exports = (app) => {
         if(currentUser._id = req.params._id) {
             User.findByIdAndUpdate(req.params.id)
                 .then(user => {
-                    res.redirect('/user/:id');
+                    res.redirect('/user/' + user._id);
                 }).catch(e => {
                     console.log(e);
                 })
