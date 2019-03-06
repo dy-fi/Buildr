@@ -181,11 +181,14 @@ li > a:hover {
 /******************
 ** PROJECT CARDS **
 *******************/
+
 .project-cards {
   margin-top: 200px;
+  /* background-color: white; */
 }
 
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -193,6 +196,7 @@ li > a:hover {
   border: solid 5px black;
   border-radius: 5px;
   padding: 60px;
+  background-color: white;
   /* background-color: rgba(0,0,0,.3); */
   color: #191f34;
 
