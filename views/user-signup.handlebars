@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
 body {
     padding-top: 220px;
     background-image:url(https://images.unsplash.com/photo-1544767799-e095aa926feb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=933&q=80);
@@ -6,8 +6,8 @@ body {
     color: white;
 }
 
-</style>
-<div class="container">
+</style> -->
+<!-- <div class="container">
     <div class="row justify-content-md-center">
             <form method="POST" action="/sign-up" class="col-md-6">
               <div class="form-group">
@@ -15,7 +15,6 @@ body {
                 <br>
                 <label for="username">User  Name</label>
                 <input type="text" class="form-control" id="username" name="username"  placeholder="User Name">
-                <!-- <small id="username" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
               </div>
@@ -23,62 +22,20 @@ body {
                 <label for="createPassword">Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
               </div>
-              <!-- <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-              </div> -->
+
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
     </div>
-</div>
+</div> -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class='row'>
-    <form method='POST' class='form-style col-sm-4' action='/sign-up'>
-        <fieldset>
-            <legend>Sign up</legend>
-
-            <div class='form-group'>
-                <label for='username'>Username</label>
-                <div>
-                    <input type='text' id='username' name='username' class='form-control'>
-                </div>
-            </div>
-            <div class='form-group'>
-                <label for='password'>Password</label>
-                <div>
-                    <input type='password' id='password' name='password' class='form-control'>
-                </div>
-            </div>
-        </fieldset>
-        <!-- BUTTON -->
-        <!-- <div class='form-group'>
-            <button class='btn btn-primary' type='submit'>Sign up</button>
-        </div>
+<div class="form">
+    <form class="inner-form" method="POST" action="/sign-up">
+        <h1>Create Account</h1>
+        <label class="form-label" for="username">Username</label>
+        <input class="form-input" type='text' id='username' name='username' placeholder="Username" required>
+        <label class="form-label" for="password">Password</label>
+        <input class="form-input" type="password" id="password" name="password" placeholder="Password" required>
+        <a class="form-anker" href="login.html">Already have an account?</a>
+        <button class="form-btn" type="submit">Create Account</button>
     </form>
-</div> --> -->
+</div>
