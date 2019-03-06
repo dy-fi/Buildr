@@ -9,6 +9,7 @@ module.exports = (app) => {
     // SHOW all projects a user is part of or owns
     app.get('/user/:id/projects', (req, res) => {
         currentUser = req.user;
+        console.log(req.user.projects)
         User.findById(req.params.id)
             .populate(projects)
             .then(user => {
@@ -26,6 +27,7 @@ module.exports = (app) => {
 
         console.log(req.user);
         res.render('projects-new', {
+
             currentUser,
         });
     })

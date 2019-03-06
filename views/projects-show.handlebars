@@ -7,3 +7,15 @@
     <p>{{project.description}}</p>
   </div>
 </div>
+
+<h1>Reviews</h1>
+
+<div class="row">
+
+    {{#each projects}}
+    <div class="col-sm-3">
+    <h2><a href="/reviews/{{this._id}}">{{this.project}}</a></h2>
+    <small>{{this.description}}</small>
+    </div>
+{{/each}}
+</div>
