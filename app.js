@@ -33,7 +33,7 @@ require('./passport')(passport);
 var MongoDBStore = require('connect-mongodb-session')(session);
 
 var store = new MongoDBStore({
-  uri: 'mongodb://localhost:27017/Buildr-db',
+  uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/Buildr-db',
   collection: 'sessions'
 });
 
